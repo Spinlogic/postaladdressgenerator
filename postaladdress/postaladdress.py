@@ -45,9 +45,9 @@ class PostalAddressGenerator(object):
                     way_type = way_parts[0]
                     way_name = way_split[0][len(way_type) + 1:]
                     way_final = {
-                        "type": way_type,
-                        "name": way_name,
-                        "municipality": municipality
+                        "type": way_type.strip(),
+                        "name": way_name.strip(),
+                        "municipality": municipality.strip()
                     }
                     self._streets.append(way_final)
                     # print(f"Tipo: {way_final['type']} , Nombre: {way_final['name']}, Municipio: {way_final['municipality']}")
@@ -62,5 +62,5 @@ class PostalAddressGenerator(object):
         for i in range(count):
             selected_way = self._streets[random.randrange(len(self._streets) - 1)]
             selected_way_number = random.randrange(STREET_REFS[selected_way["type"].lower()])
-            addresses.append(f"{selected_way['type']} {selected_way['name']} {selected_way_number}, {selected_way['municipality']}, Madrid")
+            addresses.append(f"{selected_way['type']} {selected_way['name']} {selected_way_number},{selected_way['municipality']},Madrid,ES")
         return addresses
