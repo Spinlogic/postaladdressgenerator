@@ -7,7 +7,7 @@ from pathlib import Path
 from postaladdress import PostalAddressGenerator
 from contacts import ContactGenerator
 
-CSVHEADER = "firstnames,surnames,country_code,prefix_number,number,email,locations1:line1,locations1:city,locations1:state,locations1:country,locations1:latitude,locations1:longitude"
+CSVHEADER = "firstnames,surnames,country_code,prefix_number,number,email,locations1:line1,locations1:city,locations1:state,locations1:country,locations1:latitude,locations1:longitude,group:Fake"
 STEP = 10   # number of contacts written in each iteration
 
 def main(count, numsurnames, isgetgeo, streetsfn, namesfn, surnamesfn, outfn):
@@ -25,7 +25,7 @@ def main(count, numsurnames, isgetgeo, streetsfn, namesfn, surnamesfn, outfn):
             random_contacts = contacts.generateRandomContacts(iter_count, num_surnames=numsurnames)
             for i in range(iter_count):
                 line = f"{random_contacts[i]},{random_addresses[i]}".strip()
-                outputdata.write(''.join(line.splitlines()) + '\n')
+                outputdata.write(''.join(line.splitlines()) + ',Y\n')   # The Y is to assign the contact to the fake group
             n += STEP
     streets.reportGeoResults()
     print(f"{count} records created.")

@@ -87,12 +87,11 @@ class PostalAddressGenerator(object):
                 loc = self._geocoder.resolvePostalAddress(address)
                 if loc is not None:
                     address += f",{loc[0]},{loc[1]}"
-                    addresses.append(address)
                     if self._iterTotal > 0 and self._iterTotal % GEOREPORT_COUNT == 0:
                         print(f"Current count: {self._iterTotal} of {self._total}")
                     n += 1
                     self._iterTotal += 1
             else:
                 n += 1
-                addresses.append(address)
+                addresses.append(address + ",,")
         return addresses
