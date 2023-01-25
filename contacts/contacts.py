@@ -89,7 +89,8 @@ class ContactGenerator(object):
                 selected_prefix = random.randrange(len(self._mobilePrefixes) - 1)
                 selected_contact += "," + self._mobilePrefixes[selected_prefix]["country"].upper()
                 selected_contact += "," + self._mobilePrefixes[selected_prefix]["code"]
-                selected_contact += "," + self._mobilePrefixes[selected_prefix]["prefix"] + str(random.randrange((10**msisdn_ext_len) - 1))
+                # Add prefix + 6 digits extension
+                selected_contact += "," + self._mobilePrefixes[selected_prefix]["prefix"] + str(random.randrange((10**msisdn_ext_len) - 1)).zfill(6)
             else:
                 selected_contact += ",,,"   # Empty phone info
             # Generate random email
