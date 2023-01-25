@@ -179,5 +179,18 @@
       ]
     }
     }
+  },
+  "qa": {
+    "cc": "+974",
+    "mnos": {
+      "vodafone": {
+        "is_default": true,
+        "prefixes": ["102"]
+      },
+      "ooredoo": {
+        "is_default": false,
+        "prefixes": ["202"]
+      }
+    }
   }
 }

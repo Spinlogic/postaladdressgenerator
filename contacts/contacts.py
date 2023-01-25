@@ -93,7 +93,7 @@ class ContactGenerator(object):
             else:
                 selected_contact += ",,,"   # Empty phone info
             # Generate random email
-            email = name + ".".join(surnames.split(" ")) + "@" + domains[random.randrange(len(domains) - 1)]
+            email = "".join(name.split(" ")) + ".".join(surnames.split(" ")) + "@" + domains[random.randrange(len(domains) - 1)]
             selected_contact += "," + email
             contacts.append(selected_contact)
         return contacts

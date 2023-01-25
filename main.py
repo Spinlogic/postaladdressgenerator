@@ -6,7 +6,6 @@ import argparse
 from pathlib import Path
 from postaladdress import PostalAddressGenerator
 from contacts import ContactGenerator
-from geocoder import GeoCoder
 
 CSVHEADER = "firstnames,surnames,country_code, prefix_number, number, email,locations1:line1,locations1:city,locations1:state,locations1:country,locations1:latitude,locations1:longitude"
 
